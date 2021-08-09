@@ -1,35 +1,71 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { View, StyleSheet, ScrollView } from 'react-native';
+import { PRODUCTS } from '../shared/products';
+import { Text, ListItem } from 'react-native-elements';
 
-function Rendercategoryproduct(props) {
-    const specificcategorylist = props.products.map(product => {
-        return (
-            <div key={product.id} className="d-flex justify-content-between">
-                <h5>{product.name}</h5>
-                <h5>${product.price.toFixed(2)}</h5>
-            </div>
-        );
-    });
+function Menu() {
+    const [products, setProducts] = useState(PRODUCTS);
 
-    const categoryname = props.products[0].category[0].toUpperCase() + props.products[0].category.slice(1);
-
+    const RenderCategory = props => {
+        return props.item.map(item => {
+            return (
+                <View key={item.id} style={{ justifyContent:"space-between",flexDirection:"row"}}>
+                    <ListItem.Title > {item.name}</ListItem.Title>
+                    <Text >${item.price.toFixed(2)}</Text>
+                </View>
+            );
+        });
+    };
     return (
-        <React.Fragment>
-            <h4 className="text-center section-title p-3">{categoryname}</h4>
-            <div className="p-sm-5">{specificcategorylist}</div>
-        </React.Fragment>
+        <ScrollView>
+            <View style={{ margin: 40 }}>
+                <Text h3 style={{ textAlign: 'center',marginBottom:10 }}>
+                    Our Menu
+                </Text>
+                <Text h4 style={styles.categoryName}>
+                    Pastries
+                </Text>
+                <RenderCategory item={products.filter(item => item.category === 'pastries')} />
+                <Text h4 style={styles.categoryName}>
+                    Waffles
+                </Text>
+                <RenderCategory item={products.filter(item => item.category === 'waffles')} />
+                <Text h4 style={styles.categoryName}>
+                    Breakfast
+                </Text>
+                <RenderCategory item={products.filter(item => item.category === 'breakfast')} />
+                <Text h4 style={styles.categoryName}>
+                    Lunch
+                </Text>
+                <RenderCategory item={products.filter(item => item.category === 'lunch')} />
+                <Text h4 style={styles.categoryName}>
+                    Drinks
+                </Text>
+                <RenderCategory item={products.filter(item => item.category === 'drinks')} />
+            </View>
+        </ScrollView>
     );
 }
 
-function Menu(props) {
-    return (
-        <div className="container">
-            <h2 className="text-center m-4">Our Menu</h2>
-            <Rendercategoryproduct products={props.products.filter(product => product.category === 'pastries')} />
-            <Rendercategoryproduct products={props.products.filter(product => product.category === 'waffles')} />
-            <Rendercategoryproduct products={props.products.filter(product => product.category === 'breakfast')} />
-            <Rendercategoryproduct products={props.products.filter(product => product.category === 'lunch')} />
-            <Rendercategoryproduct products={props.products.filter(product => product.category === 'drinks')} />
-        </div>
-    );
-}
+const styles = StyleSheet.create({
+    categoryName: {
+        textAlign: 'center',
+        marginTop: 8,
+        marginBottom: 8,
+        borderRadius: 10,
+        borderWidth: 2,
+    },
+
+    imageContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        margin: 10,
+    },
+    image: {
+        width: 60,
+        height: 60,
+    },
+});
 export default Menu;
