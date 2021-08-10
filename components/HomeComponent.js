@@ -7,7 +7,7 @@ function Home(props) {
     return (
         <ScrollView>
             <View style={{ margin: 15 }}>
-                <Text style={styles.titleHeader}>Welcome to San Jose Cafe</Text>
+                <Text style={styles.title}>Welcome to San Jose Cafe</Text>
                 <Text style={styles.textContent}>
                     We are number one serving cafe in the bay area. our coffee is the best in town. our priority is customers satisfaction. We use the best fresh ingredients to serve our customers. We work hard to focus and improve service that we
                     provide to make sure our customers are happy.
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         margin: 10,
         fontSize: 18,
     },
-    titleHeader: {
+    title: {
         margin: 15,
         fontSize: 24,
         justifyContent: 'center',

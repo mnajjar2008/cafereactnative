@@ -8,6 +8,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
 import { View, Platform, StyleSheet, Text, ScrollView } from 'react-native';
+import About from './AboutComponent';
 
 console.disableYellowBox = true;
 
@@ -34,7 +35,6 @@ const MenuNavigator = createStackNavigator(
         Menu: { screen: Menu },
     },
     {
-        
         defaultNavigationOptions: ({ navigation }) => ({
             headerStyle: {
                 backgroundColor: '#5637DD',
@@ -44,6 +44,23 @@ const MenuNavigator = createStackNavigator(
                 color: '#fff',
             },
             headerLeft: <Icon name="bars" type="font-awesome" iconStyle={styles.drawerIcon} onPress={() => navigation.toggleDrawer()} />,
+        }),
+    },
+);
+const AboutNavigator = createStackNavigator(
+    {
+        About: { screen: About },
+    },
+    {
+        defaultNavigationOptions: ({ navigation }) => ({
+            headerStyle: {
+                backgroundColor: 'black',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff',
+            },
+            headerLeft: <Icon name="info" type="font-awesome" iconStyle={styles.drawerIcon} onPress={() => navigation.toggleDrawer()} />,
         }),
     },
 );
@@ -59,6 +76,12 @@ const MainNavigator = createDrawerNavigator({
         screen: MenuNavigator,
         navigationOptions: {
             drawerIcon: ({ tintColor }) => <Icon name="list" type="font-awesome" size={24} color={tintColor} />,
+        },
+    },
+    About: {
+        screen: AboutNavigator,
+        navigationOptions: {
+            drawerIcon: ({ tintColor }) => <Icon name="info" type="font-awesome" size={24} color={tintColor} />,
         },
     },
 });
@@ -103,7 +126,6 @@ const styles = StyleSheet.create({
     drawerIcon: {
         marginLeft: 10,
         color: 'white',
-        
     },
 });
 export default Main;
