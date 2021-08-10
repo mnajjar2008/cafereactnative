@@ -3,23 +3,25 @@ import { View, StyleSheet, ScrollView } from 'react-native';
 import { PRODUCTS } from '../shared/products';
 import { Text, ListItem } from 'react-native-elements';
 
+Menu['navigationOptions'] = screenProps => ({ title: 'Menu' });
+
 function Menu() {
     const [products, setProducts] = useState(PRODUCTS);
 
     const RenderCategory = props => {
         return props.item.map(item => {
             return (
-                <View key={item.id} style={{ justifyContent:"space-between",flexDirection:"row"}}>
-                    <ListItem.Title > {item.name}</ListItem.Title>
-                    <Text >${item.price.toFixed(2)}</Text>
+                <View key={item.id} style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
+                    <Text style={styles.textContent}> {item.name}</Text>
+                    <Text style={styles.textContent}>${item.price.toFixed(2)}</Text>
                 </View>
             );
         });
     };
     return (
         <ScrollView>
-            <View style={{ margin: 40 }}>
-                <Text h3 style={{ textAlign: 'center',marginBottom:10 }}>
+            <View style={{ margin: 15 }}>
+                <Text h3 style={{ textAlign: 'center', marginBottom: 10 }}>
                     Our Menu
                 </Text>
                 <Text h4 style={styles.categoryName}>
@@ -55,7 +57,9 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderWidth: 2,
     },
-
+    textContent: {
+        fontSize: 18,
+    },
     imageContainer: {
         flex: 1,
         flexDirection: 'row',

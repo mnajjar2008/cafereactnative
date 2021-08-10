@@ -1,52 +1,109 @@
 import React, { useState } from 'react';
-import Header from './common/HeaderComponent';
-import Footer from './common/FooterComponent';
+import { Icon } from 'react-native-elements';
 import Home from './HomeComponent';
-import Cart from './cart/CartComponent';
-import About from './about/AboutComponent';
-import Menu from './menu/MenuComponent';
-import Order from './order/OrderComponent';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import { PRODUCTS } from '../lib/data/products';
+import SafeAreaView from 'react-native-safe-area-view';
+import Menu from './MenuComponent';
+import Constants from 'expo-constants';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
+import { createAppContainer } from 'react-navigation';
+import { View, Platform, StyleSheet, Text, ScrollView } from 'react-native';
+
+console.disableYellowBox = true;
+
+const HomeNavigator = createStackNavigator(
+    {
+        Home: { screen: Home },
+    },
+    {
+        defaultNavigationOptions: ({ navigation }) => ({
+            headerStyle: {
+                backgroundColor: 'black',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff',
+            },
+            headerLeft: <Icon name="home" type="font-awesome" iconStyle={styles.drawerIcon} onPress={() => navigation.toggleDrawer()} />,
+        }),
+    },
+);
+
+const MenuNavigator = createStackNavigator(
+    {
+        Menu: { screen: Menu },
+    },
+    {
+        
+        defaultNavigationOptions: ({ navigation }) => ({
+            headerStyle: {
+                backgroundColor: '#5637DD',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff',
+            },
+            headerLeft: <Icon name="bars" type="font-awesome" iconStyle={styles.drawerIcon} onPress={() => navigation.toggleDrawer()} />,
+        }),
+    },
+);
+
+const MainNavigator = createDrawerNavigator({
+    Home: {
+        screen: HomeNavigator,
+        navigationOptions: {
+            drawerIcon: ({ tintColor }) => <Icon name="home" type="font-awesome" size={24} color={tintColor} />,
+        },
+    },
+    Menu: {
+        screen: MenuNavigator,
+        navigationOptions: {
+            drawerIcon: ({ tintColor }) => <Icon name="list" type="font-awesome" size={24} color={tintColor} />,
+        },
+    },
+});
+
+const AppNavigator = createAppContainer(MainNavigator);
 
 function Main() {
-    const [products, setProducts] = useState(PRODUCTS);
-
-    const onAdd = (id, quantity) => {
-        setProducts(
-            [...products].map(item => {
-                if (item.id === id) {
-                    return { ...item, quantity: products.filter(item => item.id === id)[0].quantity + quantity };
-                } else return item;
-            }),
-        );
-    };
-
-    const cartItemsQuantity = products.reduce((total, item) => item.quantity + total, 0);
-
-    const RenderCart = () => {
-        const items = products.filter(item => item.quantity > 0);
-        if (items.length) {
-            return <Cart items={items} onAdd={(id, quantity) => onAdd(id, quantity)} />;
-        } else return <Cart />;
-    };
-
     return (
-        <div>
-            <Header badge={cartItemsQuantity} />
-            <main>
-                <Switch>
-                    <Route path="/cart" component={RenderCart} />
-                    <Route path="/home" component={Home} />
-                    <Route path="/menu" render={() => <Menu products={products} />} />
-                    <Route exact path="/order" render={() => <Order onAdd={(id, quantity) => onAdd(id, quantity)} products={products} />} />
-                    <Route path="/order/:category" render={props => <Order onAdd={(id, quantity) => onAdd(id, quantity)} products={products} paramsVal={props.match.params.category} />} />
-                    <Route path="/about" component={About} />
-                    <Redirect to="/home" />
-                </Switch>
-            </main>
-            <Footer />
-        </div>
+        <View
+            style={{
+                flex: 1,
+                paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight,
+            }}
+        >
+            <AppNavigator />
+        </View>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    drawerHeader: {
+        backgroundColor: '#5637DD',
+        height: 140,
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: 1,
+        flexDirection: 'row',
+    },
+    drawerHeaderText: {
+        color: '#fff',
+        fontSize: 24,
+        fontWeight: 'bold',
+    },
+    drawerImage: {
+        margin: 10,
+        height: 60,
+        width: 60,
+    },
+    drawerIcon: {
+        marginLeft: 10,
+        color: 'white',
+        
+    },
+});
 export default Main;

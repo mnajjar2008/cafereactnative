@@ -1,12 +1,12 @@
 import React from 'react';
 import {View } from 'react-native';
-import Home from './components/HomeComponent';
-import Menu from "./components/MenuComponent"
+import Main from './components/MainComponent';
+
 
 export default function App() {
     return (
-        <View>
-            <Menu />
-        </View>
+        
+            <Main />
+       
     );
 }
