@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     imageContainer: {
-        flex: 1,
         alignItems: 'center',
         margin: 10,
     },

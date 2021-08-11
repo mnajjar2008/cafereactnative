@@ -9,6 +9,7 @@ import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
 import { View, Platform, StyleSheet, Text, ScrollView } from 'react-native';
 import About from './AboutComponent';
+import Order from './OrderListComponent';
 
 console.disableYellowBox = true;
 
@@ -26,6 +27,24 @@ const HomeNavigator = createStackNavigator(
                 color: '#fff',
             },
             headerLeft: <Icon name="home" type="font-awesome" iconStyle={styles.drawerIcon} onPress={() => navigation.toggleDrawer()} />,
+        }),
+    },
+);
+
+const OrderNavigator = createStackNavigator(
+    {
+        Order: { screen: Order },
+    },
+    {
+        defaultNavigationOptions: ({ navigation }) => ({
+            headerStyle: {
+                backgroundColor: 'black',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff',
+            },
+            headerLeft: <Icon name="credit-card" type="font-awesome" iconStyle={styles.drawerIcon} onPress={() => navigation.toggleDrawer()} />,
         }),
     },
 );
@@ -76,6 +95,12 @@ const MainNavigator = createDrawerNavigator({
         screen: MenuNavigator,
         navigationOptions: {
             drawerIcon: ({ tintColor }) => <Icon name="list" type="font-awesome" size={24} color={tintColor} />,
+        },
+    },
+    Order: {
+        screen: OrderNavigator,
+        navigationOptions: {
+            drawerIcon: ({ tintColor }) => <Icon name="credit-card" type="font-awesome" size={20} color={tintColor} />,
         },
     },
     About: {

@@ -6,7 +6,7 @@ export const PRODUCTS = [
 
         price: 1.99,
 
-        image: '/assets/menu-items/pastries/muffin.jpeg',
+        image: './images/menu-items/pastries/muffin.jpeg',
 
         description: 'House-made Blueberry, Banana Chocolate Chip or Oat-Bran muffins. Nut free!',
 
@@ -22,7 +22,7 @@ export const PRODUCTS = [
 
         price: 2.99,
 
-        image: '/assets/menu-items/pastries/scone.jpeg',
+        image: './images/menu-items/pastries/scone.jpeg',
 
         description: 'Choose between our house-made Cranberry-Orange Scone or our Fair Scone with organic raspberry jam.',
 
@@ -37,7 +37,7 @@ export const PRODUCTS = [
 
         price: 0.75,
 
-        image: '/assets/menu-items/pastries/cookie.jpeg',
+        image: './images/menu-items/pastries/cookie.jpeg',
 
         description: 'Made in house every morning. Choose between chocolate chip and oatmeal raisin.',
 
@@ -53,7 +53,7 @@ export const PRODUCTS = [
 
         price: 1.99,
 
-        image: '/assets/menu-items/pastries/brownie.jpeg',
+        image: './images/menu-items/pastries/brownie.jpeg',
 
         description: "This house-made brownie is more fudgey than cakey and it's awesome.",
 
@@ -69,7 +69,7 @@ export const PRODUCTS = [
 
         price: 1.99,
 
-        image: '/assets/menu-items/pastries/gf cookie.jpeg',
+        image: './images/menu-items/pastries/gfcookie.jpeg',
 
         description: 'Packaged in a gluten free facility.',
 
@@ -85,7 +85,7 @@ export const PRODUCTS = [
 
         price: 1.99,
 
-        image: '/assets/menu-items/pastries/protein puck.jpeg',
+        image: './images/menu-items/pastries/proteinpuck.jpeg',
 
         description: 'Gluten free and vegan, packaged in a gluten free facility.',
 
@@ -101,7 +101,7 @@ export const PRODUCTS = [
 
         price: 6.25,
 
-        image: '/assets/menu-items/waffles/Vegan + Gluten Free Waffle.jpeg',
+        image: './images/menu-items/waffles/VeganGlutenFreeWaffle.jpeg',
 
         description: 'Made with hemp milk, vegetable oil and Bob’s Red Mill gf waffle mix and cooked on a designated vegan waffle iron',
 
@@ -117,7 +117,7 @@ export const PRODUCTS = [
 
         price: 3.99,
 
-        image: '/assets/menu-items/waffles/waffle.jpeg',
+        image: './images/menu-items/waffles/waffle.jpeg',
 
         description: 'Fluffy and a little sweet, made with our very own buttermilk waffle recipe',
 
@@ -133,7 +133,7 @@ export const PRODUCTS = [
 
         price: 4.99,
 
-        image: '/assets/menu-items/waffles/Bacon Cheddar Waffle.jpeg',
+        image: './images/menu-items/waffles/BaconCheddarWaffle.jpeg',
 
         description: 'Fluffy AND crispy, we cook the bacon and cheese right into the waffle—we recommend eating it with maple syrup for a perfect sweet and savory breakfast',
 
@@ -149,7 +149,7 @@ export const PRODUCTS = [
 
         price: 4.99,
 
-        image: '/assets/menu-items/waffles/Pesto + Feta Waffle.jpeg',
+        image: './images/menu-items/waffles/PestoFeta Waffle.jpeg',
 
         description: 'This savory waffle packs a punch with bold flavors—also, our pesto is nut-free!',
 
@@ -165,7 +165,7 @@ export const PRODUCTS = [
 
         price: 5.0,
 
-        image: '/assets/menu-items/breakfast/Bacon + Cheddar Sandwich.jpeg',
+        image: './images/menu-items/breakfast/BaconCheddarSandwich.jpeg',
 
         description: 'Bacon, cheddar cheese and scrambled egg on whole wheat, sourdough, or gluten free bread.',
 
@@ -181,7 +181,7 @@ export const PRODUCTS = [
 
         price: 5.99,
 
-        image: '/assets/menu-items/breakfast/Turkey Sausage + Pepper Jack.jpeg',
+        image: './images/menu-items/breakfast/TurkeySausagePepper Jack.jpeg',
 
         description: 'Turkey sausage, pepper jack cheese and scrambled egg on whole wheat, sourdough, or gluten free bread.',
 
@@ -197,7 +197,7 @@ export const PRODUCTS = [
 
         price: 4.99,
 
-        image: '/assets/menu-items/breakfast/Veggie + Pepper Jack.jpeg',
+        image: './images/menu-items/breakfast/VeggiePepperJack.jpeg',
 
         description: 'Spinach, tomato, scrambled egg, and pepper jack cheese.',
 
@@ -213,7 +213,7 @@ export const PRODUCTS = [
 
         price: 4.99,
 
-        image: '/assets/menu-items/breakfast/Egg & Cheddar.jpeg',
+        image: './images/menu-items/breakfast/EggandCheddar.jpeg',
 
         description: 'Cheddar cheese and scrambled egg on whole wheat, sourdough, or gluten free bread.',
 
@@ -229,7 +229,7 @@ export const PRODUCTS = [
 
         price: 2.99,
 
-        image: '/assets/menu-items/breakfast/Aussie Toast.jpeg',
+        image: './images/menu-items/breakfast/AussieToast.jpeg',
 
         description: 'Avocado and feta cheese on toast with a spritz of lemon and salt and pepper—dress it up by adding bacon or make it vegan by taking away the cheese.',
 
@@ -245,7 +245,7 @@ export const PRODUCTS = [
 
         price: 3.99,
 
-        image: '/assets/menu-items/breakfast/Stacks.jpeg',
+        image: './images/menu-items/breakfast/Stacks.jpeg',
 
         description: 'This is a breadless option! Two turkey sausages cut in half horizontally and cooked on the grill with cheddar cheese, tomato, and spinach between the halves.',
 
@@ -261,7 +261,7 @@ export const PRODUCTS = [
 
         price: 2.0,
 
-        image: '/assets/menu-items/breakfast/Hashbrown.jpeg',
+        image: './images/menu-items/breakfast/Hashbrown.jpeg',
 
         description: 'Single hash brown patty cooked on our gluten free panini grill.',
 
@@ -277,7 +277,7 @@ export const PRODUCTS = [
 
         price: 1.99,
 
-        image: '/assets/menu-items/breakfast/Sides.jpeg',
+        image: './images/menu-items/breakfast/Sides.jpeg',
 
         description: 'Available sides to pick',
 
@@ -293,7 +293,7 @@ export const PRODUCTS = [
 
         price: 6.99,
 
-        image: '/assets/menu-items/lunch/Chicken Avocado.jpeg',
+        image: './images/menu-items/lunch/ChickenAvocado.jpeg',
 
         description: 'Grilled sandwich with chicken breast, mashed avocado, spinach and pepper jack cheese on your choice of sourdough, whole wheat or gluten free sandwich bread. Served with potato chips.',
 
@@ -309,7 +309,7 @@ export const PRODUCTS = [
 
         price: 5.99,
 
-        image: '/assets/menu-items/lunch/Tomato Mozzarella.jpeg',
+        image: './images/menu-items/lunch/TomatoMozzarella.jpeg',
 
         description: 'Grilled tomato, spinach, mozzarella cheese and pesto on your choice of whole wheat, sourdough, or gluten free sandwich bread. Served with a side of potato chips..',
 
@@ -325,7 +325,7 @@ export const PRODUCTS = [
 
         price: 6.5,
 
-        image: '/assets/menu-items/lunch/Ham + Cheese.jpeg',
+        image: './images/menu-items/lunch/HamCheese.jpeg',
 
         description: 'Thin slices of ham and cheddar cheese grilled with butter on your choice of whole wheat, sourdough or gluten free sandwich bread. Served with potato chips.',
 
@@ -341,7 +341,7 @@ export const PRODUCTS = [
 
         price: 3.99,
 
-        image: '/assets/menu-items/lunch/Grilled Cheese.jpeg',
+        image: './images/menu-items/lunch/GrilledCheese.jpeg',
 
         description: 'Two slices of cheddar cheese, melted to perfection between two slices of whole wheat, sourdough, or gluten free sandwich bread. Served with a side of potato chips.',
 
@@ -357,7 +357,7 @@ export const PRODUCTS = [
 
         price: 3.0,
 
-        image: '/assets/menu-items/lunch/Tomato Soup.jpeg',
+        image: './images/menu-items/lunch/TomatoSoup.jpeg',
 
         description: 'Sweet and creamy and great with grilled cheese.',
 
@@ -373,7 +373,7 @@ export const PRODUCTS = [
 
         price: 2.99,
 
-        image: '/assets/menu-items/lunch/Waffle Dog.jpeg',
+        image: './images/menu-items/lunch/WaffleDog.jpeg',
 
         description: 'All beef hot dog cooked in a thin layer of cornbread waffle batter. Awesome with ketchup and mustard—equally awesome with syrup.',
 
@@ -389,7 +389,7 @@ export const PRODUCTS = [
 
         price: 1.99,
 
-        image: '/assets/menu-items/drinks/drip.jpeg',
+        image: './images/menu-items/drinks/drip.jpeg',
 
         description: 'Brewed using our Daybreak roast, a medium-dark coffee with notes of creamy chocolate malt and buttery toast.',
 
@@ -405,7 +405,7 @@ export const PRODUCTS = [
 
         price: 2.99,
 
-        image: '/assets/menu-items/drinks/americano.jpeg',
+        image: './images/menu-items/drinks/americano.jpeg',
 
         description: 'Americano.',
 
@@ -421,7 +421,7 @@ export const PRODUCTS = [
 
         price: 2.99,
 
-        image: '/assets/menu-items/drinks/double espresso.jpeg',
+        image: './images/menu-items/drinks/doubleespresso.jpeg',
 
         description: 'Two espresso shots in hot water.',
 
@@ -437,7 +437,7 @@ export const PRODUCTS = [
 
         price: 1.99,
 
-        image: '/assets/menu-items/drinks/cappuccino.jpeg',
+        image: './images/menu-items/drinks/cappuccino.jpeg',
 
         description: 'Espresso and velvety foamy milk. Think of a caffeinated cloud.',
 
@@ -453,7 +453,7 @@ export const PRODUCTS = [
 
         price: 2.99,
 
-        image: '/assets/menu-items/drinks/latte.jpeg',
+        image: './images/menu-items/drinks/latte.jpeg',
 
         description: 'Latte.',
 
@@ -469,7 +469,7 @@ export const PRODUCTS = [
 
         price: 3.99,
 
-        image: '/assets/menu-items/drinks/mocha.jpeg',
+        image: './images/menu-items/drinks/mocha.jpeg',
 
         description: 'Semi-sweet chocolate sauce, espresso, and velvety steamed milk, topped with whip cream.',
 
@@ -485,7 +485,7 @@ export const PRODUCTS = [
 
         price: 3.99,
 
-        image: '/assets/menu-items/drinks/white mocha.jpeg',
+        image: './images/menu-items/drinks/whitemocha.jpeg',
 
         description: 'White chocolate powder melted into espresso and velvety steamed milk, topped with whipped cream.',
 
@@ -501,7 +501,7 @@ export const PRODUCTS = [
 
         price: 2.99,
 
-        image: '/assets/menu-items/drinks/iced coffee.png',
+        image: './images/menu-items/drinks/icedcoffee.png',
 
         description:
             'Not available in decaf. We use the Japanese Iced Coffee method of brewing directly over ice for quick cooling—except the ice is actually coffee ice cubes to minimize watering the coffee down. Smooth and mild, but definitely not weak. Dress it up with simple syrup and milk or drink it black.',
@@ -518,7 +518,7 @@ export const PRODUCTS = [
 
         price: 1.99,
 
-        image: '/assets/menu-items/drinks/Iced Tea.jpeg',
+        image: './images/menu-items/drinks/IcedTea.jpeg',
 
         description: 'Iced tea.',
 
@@ -534,7 +534,7 @@ export const PRODUCTS = [
 
         price: 2.99,
 
-        image: '/assets/menu-items/drinks/Lemonade.jpeg',
+        image: './images/menu-items/drinks/Lemonade.jpeg',
 
         description: 'Organic lemonade—sweet with a little tang.',
 
@@ -550,7 +550,7 @@ export const PRODUCTS = [
 
         price: 2.99,
 
-        image: '/assets/menu-items/drinks/chai latte.jpeg',
+        image: './images/menu-items/drinks/chailatte.jpeg',
 
         description:
             'We use loose-leaf Sattwa chai and organic sugar to make a chai concentrate in house. A chai latte is half chai concentrate and half steamed milk (unless you like it iced!). Not too sweet, not too spicy, this chai is mild and comforting and oh-so-tasty.',
@@ -566,7 +566,7 @@ export const PRODUCTS = [
 
         price: 2.99,
 
-        image: '/assets/menu-items/drinks/hot cocoa.jpeg',
+        image: './images/menu-items/drinks/hotcocoa.jpeg',
 
         description: 'Chocolate and vanilla with steamed milk and topped with whip cream.',
 
