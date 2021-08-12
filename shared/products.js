@@ -1,6 +1,6 @@
 export const PRODUCTS = [
     {
-        id: 0,
+        id:"0",
 
         name: 'Muffin',
 
@@ -16,7 +16,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 1,
+        id:"1",
 
         name: 'Scone',
 
@@ -31,7 +31,7 @@ export const PRODUCTS = [
         quantity: 0,
     },
     {
-        id: 2,
+        id:"2",
 
         name: 'Cookie',
 
@@ -47,7 +47,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 3,
+        id:"3",
 
         name: 'Brownie',
 
@@ -63,7 +63,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 4,
+        id:"4",
 
         name: 'GF Cookie',
 
@@ -79,7 +79,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 5,
+        id:"5",
 
         name: 'Protein Puck',
 
@@ -95,7 +95,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 6,
+        id:"6",
 
         name: 'Vegan + Gluten Free Waffle',
 
@@ -111,7 +111,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 7,
+        id:"7",
 
         name: 'Waffle',
 
@@ -127,7 +127,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 8,
+        id:"8",
 
         name: 'Bacon Cheddar Waffle',
 
@@ -143,7 +143,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 9,
+        id:"9",
 
         name: 'Pesto + Feta Waffle',
 
@@ -159,7 +159,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 10,
+        id:"10",
 
         name: 'Bacon + Cheddar Sandwich',
 
@@ -175,7 +175,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 11,
+        id:"11",
 
         name: 'Turkey Sausage + Pepper Jack',
 
@@ -191,7 +191,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 12,
+        id:"12",
 
         name: 'Veggie + Pepper Jack',
 
@@ -207,7 +207,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 13,
+        id:"13",
 
         name: 'Egg & Cheddar',
 
@@ -223,7 +223,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 14,
+        id:"14",
 
         name: 'Aussie Toast',
 
@@ -239,7 +239,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 15,
+        id:"15",
 
         name: 'Stacks',
 
@@ -255,7 +255,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 16,
+        id:"16",
 
         name: 'Hashbrown',
 
@@ -271,7 +271,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 17,
+        id:"17",
 
         name: 'Sides',
 
@@ -287,7 +287,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 18,
+        id:"18",
 
         name: 'Chicken Avocado',
 
@@ -303,7 +303,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 19,
+        id:"19",
 
         name: 'Tomato Mozzarella',
 
@@ -319,7 +319,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 20,
+        id:"20",
 
         name: 'Ham + Cheese',
 
@@ -335,7 +335,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 21,
+        id:"21",
 
         name: 'Grilled Cheese',
 
@@ -351,7 +351,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 22,
+        id:"22",
 
         name: 'Tomato Soup',
 
@@ -367,7 +367,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 23,
+        id:"23",
 
         name: 'Waffle Dog',
 
@@ -383,7 +383,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 24,
+        id:"24",
 
         name: 'Drip',
 
@@ -399,7 +399,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 25,
+        id:"25",
 
         name: 'Americano',
 
@@ -415,7 +415,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 26,
+        id:"26",
 
         name: 'Double Espresso',
 
@@ -431,7 +431,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 27,
+        id:"27",
 
         name: 'Cappuccino',
 
@@ -447,7 +447,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 28,
+        id:"28",
 
         name: 'Latte',
 
@@ -463,7 +463,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 29,
+        id:"29",
 
         name: 'Mocha',
 
@@ -479,7 +479,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 30,
+        id:"30",
 
         name: 'White Mocha',
 
@@ -495,7 +495,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 31,
+        id:"31",
 
         name: 'Iced Coffee',
 
@@ -512,7 +512,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 32,
+        id:"32",
 
         name: 'Iced Tea',
 
@@ -528,7 +528,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 33,
+        id:"33",
 
         name: 'Lemonade',
 
@@ -544,7 +544,7 @@ export const PRODUCTS = [
     },
 
     {
-        id: 34,
+        id:"34",
 
         name: 'Chai Latte',
 
@@ -560,7 +560,7 @@ export const PRODUCTS = [
         quantity: 0,
     },
     {
-        id: 35,
+        id:"35",
 
         name: 'Hot Cocoa',
 

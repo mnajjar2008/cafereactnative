@@ -10,6 +10,7 @@ import { createAppContainer } from 'react-navigation';
 import { View, Platform, StyleSheet, Text, ScrollView } from 'react-native';
 import About from './AboutComponent';
 import Order from './OrderComponent';
+import Cart from './CartComponent';
 
 console.disableYellowBox = true;
 
@@ -84,6 +85,24 @@ const AboutNavigator = createStackNavigator(
     },
 );
 
+const CartNavigator = createStackNavigator(
+    {
+        Cart: { screen: Cart },
+    },
+    {
+        defaultNavigationOptions: ({ navigation }) => ({
+            headerStyle: {
+                backgroundColor: 'black',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff',
+            },
+            headerLeft: <Icon name="home" type="font-awesome" iconStyle={styles.drawerIcon} onPress={() => navigation.toggleDrawer()} />,
+        }),
+    },
+);
+
 const MainNavigator = createDrawerNavigator({
     Home: {
         screen: HomeNavigator,
@@ -105,6 +124,12 @@ const MainNavigator = createDrawerNavigator({
     },
     About: {
         screen: AboutNavigator,
+        navigationOptions: {
+            drawerIcon: ({ tintColor }) => <Icon name="info" type="font-awesome" size={24} color={tintColor} />,
+        },
+    },
+    Cart: {
+        screen: CartNavigator,
         navigationOptions: {
             drawerIcon: ({ tintColor }) => <Icon name="info" type="font-awesome" size={24} color={tintColor} />,
         },
