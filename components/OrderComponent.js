@@ -4,6 +4,13 @@ import { View, Text, StyleSheet, ScrollView, Linking, FlatList, Image } from 're
 import { Button, Card, Tile, ListItem, Icon } from 'react-native-elements';
 import { PRODUCTS } from '../shared/products';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => {
+    return {
+        products: state.products,
+    };
+};
 
 const imagesPath = [
     { id: '0', image: require('./images/menu-items/pastries/muffin.jpeg') },
@@ -44,20 +51,9 @@ const imagesPath = [
     { id: '35', image: require('./images/menu-items/drinks/hotcocoa.jpeg') },
 ];
 
+Order['navigationOptions'] = screenProps => ({ title: 'Order' });
+
 function Order(props) {
-    const [products, setProducts] = useState(PRODUCTS);
-
-    const handleadd = id => {
-        setProducts(
-            products.map(b => {
-                if (b.id === id) {
-                    return { ...b, quantity: b.quantity+1 };
-                } else return b;
-            }),
-        );
-    };
-
-    
     const renderCard = ({ item }) => {
         return (
             <View style={styles.itemContainer}>
@@ -70,29 +66,10 @@ function Order(props) {
         );
     };
     if (!props.category) {
-        return <FlatList data={products} renderItem={renderCard} keyExtractor={item => item.id} />;
+        return <FlatList data={props.products} renderItem={renderCard} keyExtractor={item => item.id} />;
     }
-    return <FlatList data={products.filter(item => item.category === props.category)} renderItem={renderCard} keyExtractor={item => item.id} />;
+    return <FlatList data={props.products.filter(item => item.category === props.category)} renderItem={renderCard} keyExtractor={item => item.id} />;
 }
-
-const TabNavigator = createBottomTabNavigator(
-    {
-        Pastries: () => <Order category={'pastries'} />,
-        Waffles: () => <Order category={'waffles'} />,
-        Breakfast: () => <Order category={'breakfast'} />,
-        Lunch: () => <Order category={'lunch'} />,
-        Drinks: () => <Order category={'drinks'} />,
-    },
-    {
-        tabBarOptions: {
-            activeBackgroundColor: 'gray',
-            inactiveBackgroundColor: 'black',
-            activeTintColor: '#fff',
-            inactiveTintColor: '#808080',
-            labelStyle: { fontSize: 16, paddingBottom: 12 },
-        },
-    },
-);
 
 const styles = StyleSheet.create({
     itemContainer: {
@@ -118,4 +95,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default TabNavigator;
+export default connect(mapStateToProps)(Order);

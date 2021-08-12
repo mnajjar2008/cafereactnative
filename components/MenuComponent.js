@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
-import { PRODUCTS } from '../shared/products';
+
 import { Text, ListItem } from 'react-native-elements';
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => {
+    return {
+        products: state.products,
+    };
+};
 
 Menu['navigationOptions'] = screenProps => ({ title: 'Menu' });
 
-function Menu() {
-    const [products, setProducts] = useState(PRODUCTS);
-
+function Menu(props) {
+    
     const RenderCategory = props => {
         return props.item.map(item => {
             return (
@@ -27,23 +33,23 @@ function Menu() {
                 <Text h4 style={styles.categoryName}>
                     Pastries
                 </Text>
-                <RenderCategory item={products.filter(item => item.category === 'pastries')} />
+                <RenderCategory item={props.products.filter(item => item.category === 'pastries')} />
                 <Text h4 style={styles.categoryName}>
                     Waffles
                 </Text>
-                <RenderCategory item={products.filter(item => item.category === 'waffles')} />
+                <RenderCategory item={props.products.filter(item => item.category === 'waffles')} />
                 <Text h4 style={styles.categoryName}>
                     Breakfast
                 </Text>
-                <RenderCategory item={products.filter(item => item.category === 'breakfast')} />
+                <RenderCategory item={props.products.filter(item => item.category === 'breakfast')} />
                 <Text h4 style={styles.categoryName}>
                     Lunch
                 </Text>
-                <RenderCategory item={products.filter(item => item.category === 'lunch')} />
+                <RenderCategory item={props.products.filter(item => item.category === 'lunch')} />
                 <Text h4 style={styles.categoryName}>
                     Drinks
                 </Text>
-                <RenderCategory item={products.filter(item => item.category === 'drinks')} />
+                <RenderCategory item={props.products.filter(item => item.category === 'drinks')} />
             </View>
         </ScrollView>
     );
@@ -72,4 +78,5 @@ const styles = StyleSheet.create({
         height: 60,
     },
 });
-export default Menu;
+
+export default connect(mapStateToProps)(Menu);

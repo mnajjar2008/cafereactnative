@@ -1,19 +1,22 @@
-
 import { useState, useEffect } from 'react';
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Linking, FlatList, Image } from 'react-native';
 import { Button, Card, Tile, ListItem, Icon } from 'react-native-elements';
-import { PRODUCTS } from '../shared/products';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { connect } from 'react-redux';
 
-function Cart(props){
+const mapStateToProps = state => {
+    return {
+        products: state.products,
+    };
+};
 
-const list=PRODUCTS.map(a=> a.quantity)
-    return(
-        <Text>{list}</Text>
-    )
+Cart['navigationOptions'] = screenProps => ({ title: 'Cart' });
+
+function Cart(props) {
+    const list = props.products.map(a => a.quantity);
+    return <Text>{list}</Text>;
 }
-
 
 // function Cart(props) {
 //     if (props.items) {
@@ -63,4 +66,4 @@ const list=PRODUCTS.map(a=> a.quantity)
 //         );
 //     } else return <div />;
 // }
-export default Cart;
+export default connect(mapStateToProps)(Cart);

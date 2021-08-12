@@ -9,7 +9,7 @@ import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
 import { View, Platform, StyleSheet, Text, ScrollView } from 'react-native';
 import About from './AboutComponent';
-import Order from './OrderComponent';
+import Order from './BottomTabNavigator';
 import Cart from './CartComponent';
 
 console.disableYellowBox = true;
@@ -57,7 +57,7 @@ const MenuNavigator = createStackNavigator(
     {
         defaultNavigationOptions: ({ navigation }) => ({
             headerStyle: {
-                backgroundColor: '#5637DD',
+                backgroundColor: 'black',
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
@@ -98,7 +98,7 @@ const CartNavigator = createStackNavigator(
             headerTitleStyle: {
                 color: '#fff',
             },
-            headerLeft: <Icon name="home" type="font-awesome" iconStyle={styles.drawerIcon} onPress={() => navigation.toggleDrawer()} />,
+            headerLeft: <Icon name="shopping-cart" type="font-awesome" iconStyle={styles.drawerIcon} onPress={() => navigation.toggleDrawer()} />,
         }),
     },
 );
@@ -131,7 +131,7 @@ const MainNavigator = createDrawerNavigator({
     Cart: {
         screen: CartNavigator,
         navigationOptions: {
-            drawerIcon: ({ tintColor }) => <Icon name="info" type="font-awesome" size={24} color={tintColor} />,
+            drawerIcon: ({ tintColor }) => <Icon name="shopping-cart" type="font-awesome" size={24} color={tintColor} />,
         },
     },
 });
