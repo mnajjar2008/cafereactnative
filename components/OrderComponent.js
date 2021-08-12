@@ -5,11 +5,16 @@ import { Button, Card, Tile, ListItem, Icon } from 'react-native-elements';
 import { PRODUCTS } from '../shared/products';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { connect } from 'react-redux';
+import { addItem } from '../redux/ActionCreators';
 
 const mapStateToProps = state => {
     return {
-        products: state.products,
+        products: state
     };
+};
+
+const mapDispatchToProps = {
+    addItem: id => addItem(id),
 };
 
 const imagesPath = [
@@ -61,7 +66,7 @@ function Order(props) {
                 <Text style={styles.textContent}>{item.name}</Text>
                 <Text style={styles.textContent}>${item.price.toFixed(2)}</Text>
                 <Text style={styles.textContent}>{item.quantity}</Text>
-                <Button onPress={() => handleadd(item.id)} buttonStyle={styles.button} title="ADD" />
+                <Button onPress={() => props.addItem(item.id)} buttonStyle={styles.button} title="ADD" />
             </View>
         );
     };
@@ -95,4 +100,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default connect(mapStateToProps)(Order);
+export default connect(mapStateToProps, mapDispatchToProps)(Order);
