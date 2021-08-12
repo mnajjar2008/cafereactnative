@@ -9,7 +9,7 @@ import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
 import { View, Platform, StyleSheet, Text, ScrollView } from 'react-native';
 import About from './AboutComponent';
-import Order from './OrderListComponent';
+import Order from './OrderComponent';
 
 console.disableYellowBox = true;
 
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
         width: 60,
     },
     drawerIcon: {
-        marginLeft: 10,
+        marginLeft: 20,
         color: 'white',
     },
 });
