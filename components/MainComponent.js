@@ -8,11 +8,32 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
 import { View, Platform, StyleSheet, Text, ScrollView } from 'react-native';
+import Order from './OrderComponent';
 import About from './AboutComponent';
-import Order from './BottomTabNavigator';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+
 import Cart from './CartComponent';
 
 console.disableYellowBox = true;
+
+const TabNavigator = createBottomTabNavigator(
+    {
+        Pastries: () => <Order category={'pastries'} />,
+        Waffles: () => <Order category={'waffles'} />,
+        Breakfast: () => <Order category={'breakfast'} />,
+        Lunch: () => <Order category={'lunch'} />,
+        Drinks: () => <Order category={'drinks'} />,
+    },
+    {
+        tabBarOptions: {
+            activeBackgroundColor: 'gray',
+            inactiveBackgroundColor: 'black',
+            activeTintColor: '#fff',
+            inactiveTintColor: '#808080',
+            labelStyle: { fontSize: 16, paddingBottom: 12 },
+        },
+    },
+);
 
 const HomeNavigator = createStackNavigator(
     {
@@ -34,7 +55,7 @@ const HomeNavigator = createStackNavigator(
 
 const OrderNavigator = createStackNavigator(
     {
-        Order: { screen: Order },
+        Order: { screen: TabNavigator },
     },
     {
         defaultNavigationOptions: ({ navigation }) => ({
