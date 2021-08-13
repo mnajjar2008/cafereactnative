@@ -14,15 +14,14 @@ const mapStateToProps = state => {
 Cart['navigationOptions'] = screenProps => ({ title: 'Cart' });
 
 function Cart(props) {
-   
-    if (props.products.filter(item => item.quantity > 0).length) {
+    if (props.products.find(item => item.quantity > 0)) {
         const list = props.products
-            .filter(a => a.quantity > 0)
-            .map(b => {
+            .filter(item => item.quantity > 0)
+            .map(item => {
                 return (
-                    <Card key={b.id}>
-                        <Text>{b.name} </Text>
-                        <Text>{b.quantity} </Text>
+                    <Card key={item.id}>
+                        <Text>{item.name} </Text>
+                        <Text>{item.quantity} </Text>
                     </Card>
                 );
             });
@@ -31,52 +30,43 @@ function Cart(props) {
     }
     return <Card />;
 
-    // function Cart(props) {
-    //     if (props.items) {
-    //         const total = props.items.reduce((total, item) => item.price * item.quantity + total, 0).toFixed(2);
-    //         const list = props.items.map(item => {
-    //             return (
-    //                 <div className="row align-items-center bg-light m-2 p-sm-2">
-    //                     <div className="text-center text-md-left col-md-2">
-    //                         <img width="100" height="100" src={item.image} alt={item.name} />
-    //                     </div>
-    //                     <div className="col-md-3 text-center text-md-left p-sm-2">{item.name}</div>
-    //                     <div className="col-md-3 text-center">
-    //                         <button type="text" onClick={() => props.onAdd(item.id, -1)} className="btn-custom ">
-    //                             -
-    //                         </button>
-    //                         <span>{item.quantity}</span>
-    //                         <button type="text" onClick={() => props.onAdd(item.id, 1)} className="btn-custom ">
-    //                             +
-    //                         </button>
-    //                     </div>
-    //                     <div className="col-md-2 text-center p-sm-2">${item.price.toFixed(2)}</div>
-    //                     <div className="col-md-2 text-right d-none d-md-block">
-    //                         <button type="text" onClick={() => props.onAdd(item.id, -item.quantity)} className="btn btn-dark btn-sm">
-    //                             Remove
-    //                         </button>
-    //                     </div>
-    //                 </div>
-    //             );
-    //         });
-
-    //         return (
-    //             <div className="container">
-    //                 <div className="d-none d-md-flex section-title mb-4 p-2">
-    //                     <h6 className="col-5 ">ITEMS</h6>
-    //                     <h6 className="col-md-3 text-center">QTY</h6>
-    //                     <h6 className="col-md-2 text-center">PRICE</h6>
-    //                 </div>
-    //                 {list}
-    //                 <div className="d-flex custom-row justify-content-between mb-2 p-2">
-    //                     <h6>Total</h6>
-    //                     <h6>${total}</h6>
-    //                 </div>
-    //                 <div className=" text-center">
-    //                     <button className="btn btn-dark p-2 font-weight-bold">Proceed to Checkout</button>
-    //                 </div>
-    //             </div>
-    //         );
-    //     } else return <div />;
 }
+
+const styles = StyleSheet.create({
+    itemContainer: {
+        margin: 30,
+        borderWidth: 1,
+        borderRadius: 5,
+    },
+    textContent: {
+        padding: 10,
+        fontSize: 18,
+    },
+    image: {
+        width: '100%',
+        height: 230,
+        marginBottom: 5,
+        borderWidth: 3,
+    },
+    addButton: {
+        marginLeft: 20,
+        marginRight: 20,
+        marginBottom: 10,
+        marginTop: 4,
+        borderRadius: 5,
+    },
+    addRemoveButton: {
+        marginBottom: 5,
+        marginTop: 5,
+        borderRadius: 5,
+        height: 25,
+        width: 25,
+    },
+    inputBox: {
+        height: 20,
+        width: 30,
+    },
+});
+
+
 export default connect(mapStateToProps)(Cart);
