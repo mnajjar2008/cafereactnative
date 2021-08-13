@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Linking, FlatList, Image } from 'react-native';
 import { Button, Card, Tile, ListItem, Icon, Input } from 'react-native-elements';
-import { PRODUCTS } from '../shared/products';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { connect } from 'react-redux';
 import { addItem } from '../redux/ActionCreators';
 
@@ -59,7 +57,7 @@ const imagesPath = [
 Order['navigationOptions'] = screenProps => ({ title: 'Order' });
 
 function Order(props) {
-    const [state, setState] = useState([
+    const [cart, setCart] = useState([
         { name: 'Muffin', quantity: 1 },
         { name: 'Scone', quantity: 1 },
         { name: 'Cookie', quantity: 1 },
@@ -98,33 +96,40 @@ function Order(props) {
         { name: 'Hot Cocoa', quantity: 1 },
     ]);
 
-    // const handleChange = value => {
-    //     setState(
-    //         [...state].map(item => {
-    //             if (item.name === e.target.name) {
-    //                 return { ...item, quantity: +e.target.value };
-    //             } else return item;
-    //         }),
-    //     );
-    // };
-
-    //onChangeText={(value) => handleChange(value)}
-
     const renderCard = ({ item }) => {
+        const handleAdd = () => {
+            setCart(
+                [...cart].map(element => {
+                    if (item.name === element.name) {
+                        return { ...element, quantity: element.quantity === 1 ? element.quantity : element.quantity - 1 };
+                    } else return element;
+                }),
+            );
+        };
+        const handleRemove = () => {
+            setCart(
+                [...cart].map(element => {
+                    if (item.name === element.name) {
+                        return { ...element, quantity: element.quantity + 1 };
+                    } else return element;
+                }),
+            );
+        };
+
         return (
-            <View style={styles.itemContainer}>
-                <Image style={styles.image} source={imagesPath.filter(imagePathId => imagePathId.id === item.id)[0].image} />
-                <Text style={styles.textContent}>
-                    {item.name}
-                    {item.quantity}
-                </Text>
-                <Text style={styles.textContent}>${item.price.toFixed(2)}</Text>
-                <View style={{ width: '100%', justifyContent: 'center', flexDirection: 'row' }}>
-                    <Button onPress={() => props.addItem(item.id, -state.filter(element => element.name === item.name)[0].quantity)} title="-" buttonStyle={styles.addRemoveButton} />
-                    <Input underlineColorAndroid="transparent" value={state.filter(element => element.name === item.name)[0].quantity.toString()} containerStyle={styles.inputBox} />
-                    <Button onPress={() => props.addItem(item.id, state.filter(element => element.name === item.name)[0].quantity)} title="+" buttonStyle={styles.addRemoveButton} />
+            <View key={item.id} style={styles.itemContainer}>
+                <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
+                    <Text style={styles.textContent}> {item.name}</Text>
+                    <Text style={styles.textContent}>${item.price.toFixed(2)}</Text>
                 </View>
-                <Button onPress={() => props.addItem(item.id, state.filter(element => element.name === item.name)[0].quantity)} buttonStyle={styles.addButton} title="ADD" />
+                <Image style={styles.image} source={imagesPath.filter(imagePathId => imagePathId.id === item.id)[0].image} />
+
+                <View style={{ width: '100%', justifyContent: 'center', flexDirection: 'row' }}>
+                    <Button onPress={handleAdd} title="-" buttonStyle={styles.addRemoveButton} />
+                    <Text style={{ fontSize: 16, padding: 5 }}>{cart.filter(element => element.name === item.name)[0].quantity}</Text>
+                    <Button onPress={handleRemove} title="+" buttonStyle={styles.addRemoveButton} />
+                </View>
+                <Button onPress={() => props.addItem(item.id, cart.filter(element => element.name === item.name)[0].quantity)} buttonStyle={styles.addButton} title="ADD" />
             </View>
         );
     };
@@ -141,13 +146,14 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     textContent: {
-        textAlign: 'center',
+        padding: 10,
         fontSize: 18,
     },
     image: {
         width: '100%',
         height: 230,
         marginBottom: 5,
+        borderWidth: 3,
     },
     addButton: {
         marginLeft: 20,

@@ -13,8 +13,3 @@ export const Products = (state = PRODUCTS, action) => {
             return state;
     }
 };
-
-// //state.map(b => {
-//
-// })
-// return state
