@@ -1,6 +1,6 @@
 import * as ActionTypes from './ActionTypes';
 
-export const addItem = id => ({
+export const addItem = (id, quantity) => ({
     type: ActionTypes.ADD_ITEM,
-    payload: id,
+    payload: { id: id, quantity: quantity },
 });

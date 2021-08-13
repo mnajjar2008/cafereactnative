@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Linking, FlatList, Image } from 'react-native';
-import { Button, Card, Tile, ListItem, Icon } from 'react-native-elements';
+import { Button, Card, Tile, ListItem, Icon, Input } from 'react-native-elements';
 import { PRODUCTS } from '../shared/products';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { connect } from 'react-redux';
@@ -9,12 +9,12 @@ import { addItem } from '../redux/ActionCreators';
 
 const mapStateToProps = state => {
     return {
-        products: state
+        products: state,
     };
 };
 
 const mapDispatchToProps = {
-    addItem: id => addItem(id),
+    addItem: (id, quantity) => addItem(id, quantity),
 };
 
 const imagesPath = [
@@ -59,14 +59,72 @@ const imagesPath = [
 Order['navigationOptions'] = screenProps => ({ title: 'Order' });
 
 function Order(props) {
+    const [state, setState] = useState([
+        { name: 'Muffin', quantity: 1 },
+        { name: 'Scone', quantity: 1 },
+        { name: 'Cookie', quantity: 1 },
+        { name: 'Brownie', quantity: 1 },
+        { name: 'GF Cookie', quantity: 1 },
+        { name: 'Protein Puck', quantity: 1 },
+        { name: 'Vegan + Gluten Free Waffle', quantity: 1 },
+        { name: 'Waffle', quantity: 1 },
+        { name: 'Bacon Cheddar Waffle', quantity: 1 },
+        { name: 'Pesto + Feta Waffle', quantity: 1 },
+        { name: 'Bacon + Cheddar Sandwich', quantity: 1 },
+        { name: 'Turkey Sausage + Pepper Jack', quantity: 1 },
+        { name: 'Veggie + Pepper Jack', quantity: 1 },
+        { name: 'Egg & Cheddar', quantity: 1 },
+        { name: 'Aussie Toast', quantity: 1 },
+        { name: 'Stacks', quantity: 1 },
+        { name: 'Hashbrown', quantity: 1 },
+        { name: 'Sides', quantity: 1 },
+        { name: 'Chicken Avocado', quantity: 1 },
+        { name: 'Tomato Mozzarella', quantity: 1 },
+        { name: 'Ham + Cheese', quantity: 1 },
+        { name: 'Grilled Cheese', quantity: 1 },
+        { name: 'Tomato Soup', quantity: 1 },
+        { name: 'Waffle Dog', quantity: 1 },
+        { name: 'Drip', quantity: 1 },
+        { name: 'Americano', quantity: 1 },
+        { name: 'Double Espresso', quantity: 1 },
+        { name: 'Cappuccino', quantity: 1 },
+        { name: 'Latte', quantity: 1 },
+        { name: 'Mocha', quantity: 1 },
+        { name: 'White Mocha', quantity: 1 },
+        { name: 'Iced Coffee', quantity: 1 },
+        { name: 'Iced Tea', quantity: 1 },
+        { name: 'Lemonade', quantity: 1 },
+        { name: 'Chai Latte', quantity: 1 },
+        { name: 'Hot Cocoa', quantity: 1 },
+    ]);
+
+    // const handleChange = value => {
+    //     setState(
+    //         [...state].map(item => {
+    //             if (item.name === e.target.name) {
+    //                 return { ...item, quantity: +e.target.value };
+    //             } else return item;
+    //         }),
+    //     );
+    // };
+
+    //onChangeText={(value) => handleChange(value)}
+
     const renderCard = ({ item }) => {
         return (
             <View style={styles.itemContainer}>
                 <Image style={styles.image} source={imagesPath.filter(imagePathId => imagePathId.id === item.id)[0].image} />
-                <Text style={styles.textContent}>{item.name}</Text>
+                <Text style={styles.textContent}>
+                    {item.name}
+                    {item.quantity}
+                </Text>
                 <Text style={styles.textContent}>${item.price.toFixed(2)}</Text>
-                <Text style={styles.textContent}>{item.quantity}</Text>
-                <Button onPress={() => props.addItem(item.id)} buttonStyle={styles.button} title="ADD" />
+                <View style={{ width: '100%', justifyContent: 'center', flexDirection: 'row' }}>
+                    <Button onPress={() => props.addItem(item.id, -state.filter(element => element.name === item.name)[0].quantity)} title="-" buttonStyle={styles.addRemoveButton} />
+                    <Input underlineColorAndroid="transparent" value={state.filter(element => element.name === item.name)[0].quantity.toString()} containerStyle={styles.inputBox} />
+                    <Button onPress={() => props.addItem(item.id, state.filter(element => element.name === item.name)[0].quantity)} title="+" buttonStyle={styles.addRemoveButton} />
+                </View>
+                <Button onPress={() => props.addItem(item.id, state.filter(element => element.name === item.name)[0].quantity)} buttonStyle={styles.addButton} title="ADD" />
             </View>
         );
     };
@@ -91,12 +149,23 @@ const styles = StyleSheet.create({
         height: 230,
         marginBottom: 5,
     },
-    button: {
+    addButton: {
         marginLeft: 20,
         marginRight: 20,
         marginBottom: 10,
+        marginTop: 4,
+        borderRadius: 5,
+    },
+    addRemoveButton: {
+        marginBottom: 5,
         marginTop: 5,
         borderRadius: 5,
+        height: 25,
+        width: 25,
+    },
+    inputBox: {
+        height: 20,
+        width: 30,
     },
 });
 

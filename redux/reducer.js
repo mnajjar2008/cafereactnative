@@ -5,8 +5,8 @@ export const Products = (state = PRODUCTS, action) => {
     switch (action.type) {
         case ActionTypes.ADD_ITEM:
             return state.map(item => {
-                if (item.id === action.payload) {
-                    return { ...item, quantity: item.quantity + 1 };
+                if (item.id === action.payload.id) {
+                    return { ...item, quantity: item.quantity + action.payload.quantity };
                 } else return item;
             });
         default:
