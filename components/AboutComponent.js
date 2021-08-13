@@ -7,7 +7,7 @@ About['navigationOptions'] = screenProps => ({ title: 'About' });
 function About() {
     return (
         <ScrollView>
-            <View style={{ margin: 15 }}>
+            <View style={{ margin: 10 }}>
                 <Text style={styles.title}>Our Cafe</Text>
                 <Text style={styles.textContent}>
                     San Jose Cafe's mission is to honor our guests' decision to dine with us by providing world-className service, great-tasting food to their order, in a clean comfortable environment. Since our humble beginnings over 6 years ago in

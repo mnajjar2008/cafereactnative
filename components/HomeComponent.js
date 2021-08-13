@@ -35,7 +35,7 @@ function Home(props) {
 const styles = StyleSheet.create({
     textContent: {
         textAlign: 'justify',
-        margin: 10,
+        margin: 5,
         fontSize: 18,
     },
     title: {

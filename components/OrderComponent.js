@@ -4,19 +4,16 @@ import { View, Text, StyleSheet, ScrollView, Linking, FlatList, Image } from 're
 import { Button, Card, Tile, ListItem, Icon, Input } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { addItem } from '../redux/ActionCreators';
-import {imagesPath} from "./ImagesPath"
+import { imagesPath } from './ImagesPath';
 
 const mapStateToProps = state => {
     return {
         products: state,
     };
 };
-
 const mapDispatchToProps = {
     addItem: (id, quantity) => addItem(id, quantity),
 };
-
-
 
 Order['navigationOptions'] = screenProps => ({ title: 'Order' });
 
