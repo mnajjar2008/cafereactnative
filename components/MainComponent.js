@@ -7,7 +7,7 @@ import Constants from 'expo-constants';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
-import { View, Platform, StyleSheet, Text, ScrollView } from 'react-native';
+import { View, Platform, StyleSheet, Text, ScrollView, Image } from 'react-native';
 import Order from './OrderComponent';
 import About from './AboutComponent';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
@@ -26,11 +26,11 @@ const TabNavigator = createBottomTabNavigator(
     },
     {
         tabBarOptions: {
-            activeBackgroundColor: 'gray',
-            inactiveBackgroundColor: 'black',
-            activeTintColor: '#fff',
-            inactiveTintColor: '#808080',
-            labelStyle: { fontSize: 16, paddingBottom: 12 },
+            activeBackgroundColor: '#1d94e5',
+            inactiveBackgroundColor: '#9ed6fe',
+            activeTintColor: 'black',
+            inactiveTintColor: 'black',
+            labelStyle: { fontSize: 16, paddingBottom: 12, fontWeight: 'bold' },
         },
     },
 );
@@ -124,38 +124,56 @@ const CartNavigator = createStackNavigator(
     },
 );
 
-const MainNavigator = createDrawerNavigator({
-    Home: {
-        screen: HomeNavigator,
-        navigationOptions: {
-            drawerIcon: ({ tintColor }) => <Icon name="home" type="font-awesome" size={24} color={tintColor} />,
+const CustomDrawerContentComponent = props => (
+    <ScrollView>
+        <SafeAreaView forceInset={{ top: 'always', horizontal: 'never' }}>
+            <View>
+                <View style={{ flex: 1 }}>
+                    <Image style={{ height: 200, width: '100%' }} source={require('./images/cafe-drawer-header.jpg')} />
+                </View>
+                <View style={{ flex: 1 }}>
+                    <Text style={{ fontSize: 26, textAlign: 'center', padding: 10 }}>San Jose Cafe</Text>
+                </View>
+            </View>
+            <DrawerItems {...props} />
+        </SafeAreaView>
+    </ScrollView>
+);
+const MainNavigator = createDrawerNavigator(
+    {
+        Home: {
+            screen: HomeNavigator,
+            navigationOptions: {
+                drawerIcon: ({ tintColor }) => <Icon name="home" type="font-awesome" size={24} color={tintColor} />,
+            },
+        },
+        Menu: {
+            screen: MenuNavigator,
+            navigationOptions: {
+                drawerIcon: ({ tintColor }) => <Icon name="list" type="font-awesome" size={24} color={tintColor} />,
+            },
+        },
+        Order: {
+            screen: OrderNavigator,
+            navigationOptions: {
+                drawerIcon: ({ tintColor }) => <Icon name="credit-card" type="font-awesome" size={20} color={tintColor} />,
+            },
+        },
+        About: {
+            screen: AboutNavigator,
+            navigationOptions: {
+                drawerIcon: ({ tintColor }) => <Icon name="info" type="font-awesome" size={24} color={tintColor} />,
+            },
+        },
+        Cart: {
+            screen: CartNavigator,
+            navigationOptions: {
+                drawerIcon: ({ tintColor }) => <Icon name="shopping-cart" type="font-awesome" size={24} color={tintColor} />,
+            },
         },
     },
-    Menu: {
-        screen: MenuNavigator,
-        navigationOptions: {
-            drawerIcon: ({ tintColor }) => <Icon name="list" type="font-awesome" size={24} color={tintColor} />,
-        },
-    },
-    Order: {
-        screen: OrderNavigator,
-        navigationOptions: {
-            drawerIcon: ({ tintColor }) => <Icon name="credit-card" type="font-awesome" size={20} color={tintColor} />,
-        },
-    },
-    About: {
-        screen: AboutNavigator,
-        navigationOptions: {
-            drawerIcon: ({ tintColor }) => <Icon name="info" type="font-awesome" size={24} color={tintColor} />,
-        },
-    },
-    Cart: {
-        screen: CartNavigator,
-        navigationOptions: {
-            drawerIcon: ({ tintColor }) => <Icon name="shopping-cart" type="font-awesome" size={24} color={tintColor} />,
-        },
-    },
-});
+    { contentOptions: { activeBackgroundColor: '#1d94e5', activeTintColor: 'black' }, drawerBackgroundColor: '#9ed6fe', contentComponent: CustomDrawerContentComponent },
+);
 
 const AppNavigator = createAppContainer(MainNavigator);
 
