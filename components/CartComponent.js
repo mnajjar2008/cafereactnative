@@ -31,18 +31,18 @@ function Cart(props) {
                         <View style={{ justifyContent: 'space-between', flexDirection: 'row', paddingLeft: 15 }}>
                             <Image style={styles.image} source={imagesPath.filter(imagePathId => imagePathId.id === item.id)[0].image} />
                             <View style={{ flexDirection: 'row', padding: 5 }}>
-                                <Button title="-" buttonStyle={styles.addRemoveButton} />
+                                <Button onPress={() => props.addItem(item.id, -1)} title="+" buttonStyle={styles.addRemoveButton} title="-" buttonStyle={styles.addRemoveButton} />
                                 <Text style={{ fontSize: 16, padding: 5 }}>{props.products.filter(element => element.name === item.name)[0].quantity}</Text>
-                                <Button title="+" buttonStyle={styles.addRemoveButton} />
+                                <Button onPress={() => props.addItem(item.id, 1)} title="+" buttonStyle={styles.addRemoveButton} />
                             </View>
                         </View>
-                        <Button buttonStyle={styles.removeButton} title="Remove" />
+                        <Button onPress={() => props.addItem(item.id, -props.products.filter(element => element.name === item.name)[0].quantity)} buttonStyle={styles.removeButton} title="Remove" />
                         <Divider></Divider>
                     </View>
                 );
             });
         return (
-            <ScrollView>
+            <ScrollView styles={{ marginBottom: 10 }}>
                 <View style={styles.itemContainer}>{list}</View>
                 <View style={styles.itemContainer}>
                     <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
