@@ -6,14 +6,13 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
     return {
-        products: state
+        products: state,
     };
 };
 
 Menu['navigationOptions'] = screenProps => ({ title: 'Menu' });
 
 function Menu(props) {
-    
     const RenderCategory = props => {
         return props.item.map(item => {
             return (
@@ -62,9 +61,12 @@ const styles = StyleSheet.create({
         marginBottom: 8,
         borderRadius: 10,
         borderWidth: 2,
+        backgroundColor: '#9ed6fe',
+        
     },
     textContent: {
         fontSize: 18,
+        
     },
     imageContainer: {
         flex: 1,
