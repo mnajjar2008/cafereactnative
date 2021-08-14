@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Linking, FlatList, Image } from 'react-native';
-import { Button, Card, Tile, ListItem, Icon, Input } from 'react-native-elements';
+import { View, Text, StyleSheet, FlatList, Image } from 'react-native';
+import { Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { addItem } from '../redux/ActionCreators';
 import { imagesPath } from './ImagesPath';
@@ -58,7 +58,7 @@ function Order(props) {
     ]);
 
     const renderCard = ({ item }) => {
-        const handleAdd = () => {
+        const handleRemove = () => {
             setCart(
                 [...cart].map(element => {
                     if (item.name === element.name) {
@@ -67,7 +67,7 @@ function Order(props) {
                 }),
             );
         };
-        const handleRemove = () => {
+        const handleAdd = () => {
             setCart(
                 [...cart].map(element => {
                     if (item.name === element.name) {
@@ -86,9 +86,9 @@ function Order(props) {
                 <Image style={styles.image} source={imagesPath.filter(imagePathId => imagePathId.id === item.id)[0].image} />
 
                 <View style={{ width: '100%', justifyContent: 'center', flexDirection: 'row' }}>
-                    <Button onPress={handleAdd} title="-" buttonStyle={styles.addRemoveButton} />
+                    <Button onPress={handleRemove} title="-" buttonStyle={styles.addRemoveButton} />
                     <Text style={{ fontSize: 16, padding: 5 }}>{cart.filter(element => element.name === item.name)[0].quantity}</Text>
-                    <Button onPress={handleRemove} title="+" buttonStyle={styles.addRemoveButton} />
+                    <Button onPress={handleAdd} title="+" buttonStyle={styles.addRemoveButton} />
                 </View>
                 <Button onPress={() => props.addItem(item.id, cart.filter(element => element.name === item.name)[0].quantity)} buttonStyle={styles.addButton} title="ADD" />
             </View>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Linking, FlatList, Image } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 import { Button, Card, Divider } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { addItem } from '../redux/ActionCreators';
@@ -31,7 +31,7 @@ function Cart(props) {
                         <View style={{ justifyContent: 'space-between', flexDirection: 'row', paddingLeft: 15 }}>
                             <Image style={styles.image} source={imagesPath.filter(imagePathId => imagePathId.id === item.id)[0].image} />
                             <View style={{ flexDirection: 'row', padding: 5 }}>
-                                <Button onPress={() => props.addItem(item.id, -1)} title="+" buttonStyle={styles.addRemoveButton} title="-" buttonStyle={styles.addRemoveButton} />
+                                <Button onPress={() => props.addItem(item.id, -1)} buttonStyle={styles.addRemoveButton} title="-" />
                                 <Text style={{ fontSize: 16, padding: 5 }}>{props.products.filter(element => element.name === item.name)[0].quantity}</Text>
                                 <Button onPress={() => props.addItem(item.id, 1)} title="+" buttonStyle={styles.addRemoveButton} />
                             </View>
