@@ -130,10 +130,7 @@ const styles = StyleSheet.create({
         height: 25,
         width: 25,
     },
-    inputBox: {
-        height: 20,
-        width: 30,
-    },
+  
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Order);

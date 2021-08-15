@@ -10,13 +10,13 @@ function About() {
         MailComposer.composeAsync({
             recipients: ['sanjosecafesupport@gmail.com'],
             subject: 'Support',
-            body: 'Hello,',
+            body: 'Hello, \n',
         });
     };
 
     return (
         <ScrollView>
-            <View style={{ margin: 10 }}>
+            <View style={{ margin: 15 }}>
                 <Text style={styles.title}>Our Cafe</Text>
                 <Text style={styles.textContent}>
                     San Jose Cafe's mission is to honor our guests' decision to dine with us by providing world-className service, great-tasting food to their order, in a clean comfortable environment. Since our humble beginnings over 6 years ago in
@@ -74,11 +74,11 @@ function About() {
 const styles = StyleSheet.create({
     textContent: {
         textAlign: 'left',
-        margin: 5,
+
         fontSize: 18,
     },
     title: {
-        margin: 15,
+        marginTop: 15,
         marginBottom: 5,
         fontSize: 24,
         justifyContent: 'center',

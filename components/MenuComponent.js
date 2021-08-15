@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
-
-import { Text, ListItem } from 'react-native-elements';
+import { Text } from 'react-native-elements';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
@@ -62,22 +61,9 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderWidth: 2,
         backgroundColor: '#9ed6fe',
-        
     },
     textContent: {
         fontSize: 18,
-        
-    },
-    imageContainer: {
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-evenly',
-        margin: 10,
-    },
-    image: {
-        width: 60,
-        height: 60,
     },
 });
 

@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
-import { Icon } from 'react-native-elements';
+import React from 'react';
 import Home from './HomeComponent';
-import SafeAreaView from 'react-native-safe-area-view';
+import Order from './OrderComponent';
+import About from './AboutComponent';
 import Menu from './MenuComponent';
+import Cart from './CartComponent';
 import Constants from 'expo-constants';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
-import { View, Platform, StyleSheet, Text, ScrollView, Image } from 'react-native';
-import Order from './OrderComponent';
-import About from './AboutComponent';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
+import SafeAreaView from 'react-native-safe-area-view';
+import { View, Platform, StyleSheet, Text, ScrollView, Image } from 'react-native';
+import { Icon } from 'react-native-elements';
 
-import Cart from './CartComponent';
+
 
 console.disableYellowBox = true;
 
