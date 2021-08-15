@@ -67,6 +67,7 @@ const OrderNavigator = createStackNavigator(
                 color: '#fff',
             },
             headerLeft: <Icon name="credit-card" type="font-awesome" iconStyle={styles.drawerIcon} onPress={() => navigation.toggleDrawer()} />,
+            title: 'Order',
         }),
     },
 );

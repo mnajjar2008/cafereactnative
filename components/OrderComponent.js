@@ -15,7 +15,7 @@ const mapDispatchToProps = {
     addItem: (id, quantity) => addItem(id, quantity),
 };
 
-Order['navigationOptions'] = screenProps => ({ title: 'Order' });
+
 
 function Order(props) {
     const [cart, setCart] = useState([
