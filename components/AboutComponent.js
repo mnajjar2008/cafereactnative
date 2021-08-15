@@ -1,10 +1,19 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Linking } from 'react-native';
 import { Button } from 'react-native-elements';
+import * as MailComposer from 'expo-mail-composer';
 
 About['navigationOptions'] = screenProps => ({ title: 'About' });
 
 function About() {
+    const sendEmail = () => {
+        MailComposer.composeAsync({
+            recipients: ['sanjosecafesupport@gmail.com'],
+            subject: 'Support',
+            body: 'Hello,',
+        });
+    };
+
     return (
         <ScrollView>
             <View style={{ margin: 10 }}>
@@ -57,7 +66,7 @@ function About() {
                 ></Button>
                 <Text style={styles.title}>Email Us</Text>
                 <Text style={styles.textContent}>sanjosecafesupport@gmail.com</Text>
-                <Button title="Email"></Button>
+                <Button onPress={sendEmail} title="Email"></Button>
             </View>
         </ScrollView>
     );
